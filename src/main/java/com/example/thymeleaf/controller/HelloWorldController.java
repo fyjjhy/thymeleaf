@@ -1,7 +1,12 @@
 package com.example.thymeleaf.controller;
 
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * <Description> <br>
@@ -18,8 +23,10 @@ import org.springframework.web.bind.annotation.RestController;
 public class HelloWorldController {
 
     @RequestMapping("/hello")
-    public String getDemo() {
-        System.out.println("hello world");
-        return "Hello world";
+    public ModelAndView getDemo() {
+        System.out.println("进入了");
+        Map<String, String> map = new HashMap<>();
+        map.put("name", "jiangbei");
+        return new ModelAndView("hello", map);
     }
 }
